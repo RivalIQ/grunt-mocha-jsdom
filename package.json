@@ -1,0 +1,43 @@
+{
+  "name": "grunt-mocha-jsdom",
+  "description": "Run client side Mocha tests via jsdom.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/RivalIQ/grunt-mocha-jsdom",
+  "author": {
+    "name": "Colin Teal",
+    "email": "colint@rivaliq.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/RivalIQ/grunt-mocha-jsdom.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RivalIQ/grunt-mocha-jsdom/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/RivalIQ/grunt-mocha-jsdom/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "main": "tasks/mocha_jsdom.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "dependencies": {
+    "jsdom": "8.4.0",
+    "mocha": "1.17.1"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "^0.9.2",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-nodeunit": "^0.3.3",
+    "grunt": "~0.4.5"
+  },
+  "keywords": [
+    "gruntplugin"
+  ]
+}
