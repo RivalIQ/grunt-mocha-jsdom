@@ -31,7 +31,15 @@ module.exports = function(grunt) {
 
     function getReporter(options) {
         var ctx = {};
-        Mocha.prototype.reporter.call(ctx, options.reporter);
+        var reporter = options.reporter;
+        try {
+            Mocha.prototype.reporter.call(ctx, options.reporter);
+        } catch(e) {
+            // if Mocha failed to get the reporter try relative root modules
+            if (typeof reporter === "string") {
+                ctx._reporter = require(path.resolve('node_modules', reporter));
+            }
+        }
         return ctx._reporter;
     }
 

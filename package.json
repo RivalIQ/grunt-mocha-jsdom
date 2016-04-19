@@ -1,7 +1,7 @@
 {
   "name": "grunt-mocha-jsdom",
   "description": "Run client side Mocha tests via jsdom.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/RivalIQ/grunt-mocha-jsdom",
   "author": {
     "name": "Colin Teal",
