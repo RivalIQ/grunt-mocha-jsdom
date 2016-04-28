@@ -2,7 +2,7 @@
  * grunt-mocha-jsdom
  * https://github.com/RivalIQ/grunt-mocha-jsdom
  *
- * Copyright (c) 2016 Rival IQ 
+ * Copyright (c) 2016 Rival IQ
  * Licensed under the MIT license.
  */
 
@@ -62,11 +62,17 @@ module.exports = function(grunt) {
             .concat(grunt.file.expand(options.specs))
             .concat(makeScriptData('(' + mochaRunner.toString() + '())'));
 
-        jsdom.env({
+        var env = {
             html: '<link rel="stylesheet" href="node_modules/mocha/mocha.css"><div id="mocha"/>',
             scripts: scripts,
-            done: callback 
-        });
+            done: callback
+        };
+
+        if (options.resourceLoader) {
+            env.resourceLoader = options.resourceLoader;
+        }
+
+        jsdom.env(env);
     }
 
     grunt.registerMultiTask('mocha-jsdom', 'Run client side Mocha tests via jsdom.', function () {
@@ -83,7 +89,8 @@ module.exports = function(grunt) {
         getWindow(me.filesSrc, options, function (err, window) {
             window.mocha._reporter = function (runner, root) {
                 var Reporter = getReporter(options);
-                var reporter = new Reporter(runner, root);
+                // pass window to give reporters access
+                var reporter = new Reporter(runner, root, window);
 
                 runner.on('end', function () {
                     if (options.keepRunner) {
