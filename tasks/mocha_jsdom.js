@@ -63,7 +63,7 @@ module.exports = function(grunt) {
             .concat(makeScriptData('(' + mochaRunner.toString() + '())'));
 
         var env = {
-            html: '<link rel="stylesheet" href="node_modules/mocha/mocha.css"><div id="mocha"/>',
+            html: '<meta charset="utf-8"><link rel="stylesheet" href="node_modules/mocha/mocha.css"><div id="mocha"/>',
             scripts: scripts,
             done: callback
         };
