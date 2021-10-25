@@ -28,8 +28,8 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "jsdom": "*",
-    "mocha": "*"
+    "jsdom": "8.4.1",
+    "mocha": ">=1.17.1"
   },
   "devDependencies": {
     "grunt-contrib-jshint": "*",
