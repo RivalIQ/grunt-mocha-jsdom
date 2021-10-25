@@ -100,7 +100,7 @@ module.exports = function(grunt) {
 
                     process.nextTick(function () {
                         var stats = reporter.stats;
-                        if (stats.failures > 0) {
+                        if (stats && stats.failures > 0) {
                             grunt.fail.fatal(stats.failures + ' test failure(s)', 1);
                         }
                         done();
